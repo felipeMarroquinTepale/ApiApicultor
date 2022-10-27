@@ -3,6 +3,8 @@ var router = express.Router();
 const apicultorService = require("../controllers/ApicultorService");
 const apiarioService = require("../controllers/ApiarioService");
 const hivesService = require("../controllers/hivesService");
+const sickService = require("../controllers/sickService");
+const activityService = require("../controllers/activityService");
 
 
 
@@ -23,6 +25,19 @@ router.get('/getallColmenas',hivesService.consultHives);
 router.post('/registerColmena',hivesService.insertHives);
 router.delete('/deleteColmena',hivesService.deleteHive);
 router.put('/updateColmena',hivesService.updateHive);
+
+//route para gestion de enfermedades
+router.get('/getallSick',sickService.consultSick);
+router.post('/registerSick',sickService.insertSick);
+router.delete('/deleteSick',sickService.deleteSick);
+router.put('/updateSick',sickService.updateSick);
+
+
+//route para gestion de actividades
+router.get('/getallActividades',activityService.consultActivity);
+router.post('/registerActividades',activityService.insertActivity);
+router.delete('/deleteActividades',activityService.deleteActivity);
+router.put('/updateActividades',activityService.updateActivity);
 
 
 
