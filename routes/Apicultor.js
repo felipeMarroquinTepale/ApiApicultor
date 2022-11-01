@@ -10,6 +10,8 @@ const activityService = require("../controllers/activityService");
 
 //route para gestion de apicultor
 router.get('/getallApicultores',apicultorService.consultApicultor);
+router.get('/getallContentApicultores',apicultorService.consultAllContentApicultor);
+router.get('/getallContentApicultor',apicultorService.consultContentApicultor);
 router.post('/registerApicultor',apicultorService.insertApicultor);
 router.delete('/deleteApicultor',apicultorService.deleteApicultor);
 router.put('/updateApicultor',apicultorService.updateApicultor);
