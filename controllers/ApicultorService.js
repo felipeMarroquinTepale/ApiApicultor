@@ -87,9 +87,47 @@ const updateApicultor = (req, res) =>{
         }
     })
 }
+
+const consultAllContentApicultor = (req, res) =>{
+    console.log("Obteniendo contenido de los datos de los apicultores")
+    ApicultorDao.consultAllContentApicultor((data)=>{
+        if ( data != null){
+            res.send({
+                status: true,
+                data: data
+            })
+        }else {
+            res.send({
+                status: false,
+                message: "Ningun dato"
+            })
+        }
+    })
+}
+
+const consultContentApicultor = (req, res) =>{
+    const id_beekeeper = req.body.id_beekeeper;
+    console.log("Obteniendo contenido de los datos de un apicultor")
+    ApicultorDao.consultContentApicultor(id_beekeeper,(data)=>{
+        if ( data != null){
+            res.send({
+                status: true,
+                data: data
+            })
+        }else {
+            res.send({
+                status: false,
+                message: "Ningun dato"
+            })
+        }
+    })
+}
+
 module.exports = {
     consultApicultor,
     insertApicultor,
     deleteApicultor,
-    updateApicultor
+    updateApicultor,
+    consultAllContentApicultor,
+    consultContentApicultor
 }
