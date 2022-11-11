@@ -5,8 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
 
-var indexRouter = require('./routes/index');
-var studentRouter = require('./routes/Apicultor');
+
+var indexRouter = require('./src/routes/index');
+var studentRouter = require('./src/routes/Apicultor');
+
 
 var app = express();
 
@@ -19,14 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors())
-
-
-//servidor recibe la ruta
 
 app.use('/', indexRouter);
 app.use('/apicultor', studentRouter);
-
 
 
 // catch 404 and forward to error handler
