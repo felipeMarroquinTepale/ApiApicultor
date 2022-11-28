@@ -65,8 +65,8 @@ module.exports = {
     },
 
     updateApicultor:(beekeeper,callback)=>{
-       const recor = [beekeeper.name,beekeeper.lastname,beekeeper.user,beekeeper.password,beekeeper.email,beekeeper.phone,beekeeper.id_beekeeper]
-       let sql = ('UPDATE beekeeper SET name = ?,lastname = ?,user = ?,password= ?,email= ?,phone= ? WHERE id_beekeeper= ?');
+       const recor = [beekeeper.UID_beekeeper,beekeeper.name,beekeeper.lastname,beekeeper.user,beekeeper.password,beekeeper.email,beekeeper.phone,beekeeper.photo_url,beekeeper.id_beekeeper]
+       let sql = ('UPDATE beekeeper SET UID_beekeeper=?,name = ?,lastname = ?,user = ?,password= ?,email= ?,phone= ?,photo_url=? WHERE id_beekeeper= ?');
 
         //let sql = 'UPDATE beekeeper SET ? WHERE id_beekeeper = ?'
         bd.query(sql,recor,(err,data)=>{

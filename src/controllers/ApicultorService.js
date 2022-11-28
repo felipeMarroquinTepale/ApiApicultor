@@ -34,13 +34,14 @@ const usernameValidate = (req, res) => {                    //Peticion get   met
 const insertApicultor=(req, res)=>{
     console.log("Insertando apicultor")
     const beekeeper = {
-        id_beekeeper: req.body.id_beekeeper,
+        UID_beekeeper: req.body.UID_beekeeper,
         name_beekeeper: req.body.name_beekeeper,
         lastname: req.body.lastname,
         user:req.body.user,
         password: bcrypt.hashSync(req.body.password,10), //guardar la contraseña hasheada
         email: req.body.email,
         phone: req.body.phone,
+        photo_url: req.body.photo_url
     }
     ApicultorDao.insertApicultor(beekeeper,(data)=>{
         if (data && data.affectedRows ===1){
@@ -80,12 +81,14 @@ const updateApicultor = (req, res) =>{
 
     const beekeeper = {
         id_beekeeper: req.body.id_beekeeper,
-        name: req.body.name,
+        UID_beekeeper: req.body.UID_beekeeper,
+        name_beekeeper: req.body.name_beekeeper,
         lastname: req.body.lastname,
         user:req.body.user,
-        password: req.body.password,
+        password: bcrypt.hashSync(req.body.password,10), //guardar la contraseña hasheada
         email: req.body.email,
         phone: req.body.phone,
+        photo_url: req.body.photo_url
     }
     ApicultorDao.updateApicultor(beekeeper,(data)=>{
         if (data && data.affectedRows ===1){

@@ -3,11 +3,10 @@ const hiveDao = require("../models/HiveDAO")
 const insertHives=(req, res)=>{
     console.log("Insertando colmena")
     const hive= {
-        id_hives: req.body.id_hives,
-        name: req.body.name,
+        name_hives: req.body.name,
         cant_backstage: req.body.cant_backstage,
         state:req.body.state,
-        date_register: req.body.date_register,
+        date_register_H: req.body.date_register_H,
         id_apiary: req.body.id_apiary,
     }
     hiveDao.insertHive(hive,(data)=>{
@@ -65,10 +64,10 @@ const updateHive = (req, res) =>{
 
     const hive= {
         id_hives: req.body.id_hives,
-        name: req.body.name,
+        name_hives: req.body.name,
         cant_backstage: req.body.cant_backstage,
         state:req.body.state,
-        date_register: req.body.date_register,
+        date_register_H: req.body.date_register_H,
         id_apiary: req.body.id_apiary,
     }
 

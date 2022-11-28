@@ -1,11 +1,10 @@
 const sickDao = require("../models/sickDAO")
 
 const insertSick=(req, res)=>{
-    console.log("Insertando colmena")
+    console.log("Insertando enfermedad en la  colmena")
     const sick= {
-        id_sick: req.body.id_sick,
-        name: req.body.name,
-        description: req.body.description,
+        name_sick: req.body.name_sick,
+        description_sick: req.body.description_sick,
         treatment:req.body.treatment,
         id_hives: req.body.id_hives,
     }
@@ -25,7 +24,7 @@ const insertSick=(req, res)=>{
 }
 const consultSick = (req, res) =>{
     const id_hives = req.body.id_hives
-    console.log("Obteniendo datos de la colmenas")
+    console.log("Obteniendo datos de la enfermedad de la colmena")
     sickDao.consultSick(id_hives,(data)=>{
         if ( data != null){
             res.send({
@@ -42,13 +41,13 @@ const consultSick = (req, res) =>{
 }
 
 const deleteSick = (req, res) =>{
-    console.log("Eliminando colmena")
+    console.log("Eliminando enfermedad de la colmena")
     const id_sick= req.body.id_sick
     sickDao.deleteSick(id_sick,(data)=>{
         if (data && data.affectedRows ===1){
             res.send({
                 status:true,
-                message: 'colmena eliminada exitosamente'
+                message: 'enfermadad de la colmena eliminada exitosamente'
             })
         }else {
             res.send({
@@ -60,12 +59,12 @@ const deleteSick = (req, res) =>{
 }
 
 const updateSick = (req, res) =>{
-    console.log("actualizando  colemna")
+    console.log("actualizando enfermedad de la colemna")
 
     const sick= {
         id_sick: req.body.id_sick,
-        name: req.body.name,
-        description: req.body.description,
+        name_sick: req.body.name_sick,
+        description_sick: req.body.description_sick,
         treatment:req.body.treatment,
         id_hives: req.body.id_hives,
     }
@@ -74,7 +73,7 @@ const updateSick = (req, res) =>{
         if (data && data.affectedRows ===1){
             res.send({
                 status:true,
-                message: 'colmenas actualizado exitosamente'
+                message: 'enfermedad de la colmena actualizado exitosamente'
             })
         }else {
             res.send({

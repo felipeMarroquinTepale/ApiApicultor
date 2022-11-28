@@ -1,8 +1,8 @@
 const mysql = require('mysql2');
 
 const config = {
-    host: '3.226.164.94',
-    user: 'felipemarroquin',
+    host: 'db-apibeekepeer.cdqxvmj3d7xx.us-east-1.rds.amazonaws.com',
+    user: 'admin',
     database:'apiBeekepeer',
     password: 'datamin3',
 
